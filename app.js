@@ -7,12 +7,11 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 let viewPath = path.join(__dirname, 'app/views');
-
+app.use('/', express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('views', viewPath);
-console.log(__dirname, 'app/views');
 
 var hbs = expressHbs.create({
 	extname: 'hbs',
@@ -28,8 +27,6 @@ app.set('view engine', 'hbs');
 
 //app.engine('handlebars', expressHbs());
 //app.set('view engine', 'handlebars');
-
-app.use('/', express.static(__dirname + '/public'));
 
 app.use( function(req, res, next) {
 
@@ -63,5 +60,4 @@ app.use(function (err, req, res, next) {
 		console.log(err, req.originalUrl);
 	}
 });
-
 module.exports = app;

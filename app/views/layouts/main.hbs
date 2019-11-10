@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Example App - Home</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>BlueStack</title>
+  <link rel="stylesheet" type="text/css" href="/css/product-list-basic.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</style>
 </head>
+
 <body>
- 
-<body>
-    {{!body will be rendered from res.render(template name);}}
-    {{{body}}}
- 
+<div class="bs-example">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="/Applist" class="navbar-brand">BlueStack</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ml-auto pull-right" style="font-size: 20px;" >
+        <a href="#" class="nav-item nav-link active">Rescrap</a>
+      </div>
+    </div>
+  </nav>
+</div>
+{{!body will be rendered from res.render(template name);}}
+  {{{body}}}
 </body>
- 
-</body>
+
 </html>

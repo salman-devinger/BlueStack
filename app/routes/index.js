@@ -11,5 +11,7 @@ var appListObj = new cntlAppList();
 
 /*GET DailyPlans Page*/
 router.get('/Applist/', _.bind(appListObj.get, appListObj));
+router.get('/ReScrap/', _.bind(appListObj.reScrapRecords, appListObj));
+router.get('/appdetails/', _.bind(appListObj.getAppDetails, appListObj));
 
 module.exports = router;

@@ -1,0 +1,49 @@
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{{appData.title}}}
+    <small>{{{appData.package_name}}}</small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    
+	<iframe src="{{{appData.promo_video}}}" height="500" width="750" alt="Video Not Found" >
+	</iframe>
+    <div class="col-md-4">
+      <h3 class="my-3">App Description</h3>
+      <p>{{{appData.short_desc}}}</p>
+      <h3 class="my-3">App Details</h3>
+      <ul>
+        <li>Category: {{{appData.category}}}</li>
+        <li>Version: {{{appData.version}}}</li>
+		<li>Source: {{{appData.market_source}}}</li>
+		<li>Size: {{{appData.size}}} MB</li>
+		<li>Status: {{{appData.market_status}}}</li>
+		<li>Developer: {{{appData.developer}}}</li>
+		<li>Rating: {{{appData.rating}}}</li>
+		<li>WebSite: <a href="{{{appData.website}}}">{{{appData.website}}}</a></li>
+      </ul>
+    </div>
+
+  </div><br/>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  <h3 class="my-4">ScreenShots</h3><br/>
+
+  <div class="row">
+	{{#each appData.screenshots}}
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+		<img class="img-fluid" src="{{this}}" alt="Video Not Found">
+		</a>
+    </div>
+	{{/each}}
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->

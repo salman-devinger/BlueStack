@@ -1,14 +1,91 @@
-
- 
-    <!-- Uses built-in `if` helper. -->
-  {{#if title}}
-    <h1>Home</h1>
-  {{/if}}
- 
-    <!-- Calls `foo` helper, overridden at render-level. -->
-    <p>{{title}}</p>
- 
-    <!-- Calls `bar` helper, defined at instance-level. -->
-    <p>{{title}}</p>
+  
+  <div id="exTab1" class="container">	
     
-    <p>Salman</p>
+    <div id="myBtnContainer">
+      {{#each listTypes}}
+      <button class="btn{{#if this.ACTIVE_YN}} active{{/if}}" onclick="document.location.href='/Applist?listType={{this.listId}}'">{{this.listName}}</button>
+      {{/each}}
+    </div><br/><br/>
+
+  <div id="test-list" >
+    <ul class="product-list-basic list" id="list">
+      {{#each res}}
+      <li >
+        <a href="#" class="product-photo">
+            <img src="{{{this.icon}}}" height="130" alt="BlueStack" />
+        </a>
+        <h2><a href="#">{{{this.title}}}</a></h2>
+        
+        <div class="product-rating">
+          <div>
+            <span class="product-stars" style="width: 60px" >
+              <a href="#">{{{this.category}}}</a>
+            </span>
+          </div>
+          <span class="product-price" style="font-size: 15px;"><a href="#">{{{this.version}}}</a></span>
+        </div>
+        <p class="product-description">{{{this.package_name}}}</p>
+        <button onclick="document.location.href='/appdetails?pkg={{this.package_name}}'">Details</button>
+        <p class="product-price" >{{{this.rating}}}</p>
+
+      </li>
+      {{/each}}
+    </ul>
+    <ul class="pagination"></ul>
+  </div>
+</div>
+</body>
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>
+  var monkeyList = new List('test-list', {
+    valueNames: ['name'],
+    page: 20,
+    pagination: true
+  });
+  let res = {{{JSONstringify res}}};
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  console.log('Buttons: ', btns)
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      //var current = document.getElementsByClassName("active");
+      var current = $('#myBtnContainer .active');
+      console.log("Current: ", current);
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  /*function filterSelection(input) {
+    var input, filter, ul, li, a, i, txtValue;
+    filter = monkeyList;
+    //ul = document.getElementById("list");
+    ul = document.querySelectorAll("ul")[0];
+    console.log(ul[0])
+    //li = ul[0].getElementsByTagName("li");
+    //li = document.querySelectorAll("li");
+    //li = ul[0];
+    li = ul.querySelectorAll("li");
+    console.log(`LI : ${li}`);
+    console.log(`ul Ln: ${li.length}`);
+    for (i = 0; i < li.length; i++) {
+        if(true){
+          a = li[i].getElementsByTagName("a")[1];
+          console.log('A: ', a);
+          txtValue = a.text || "";
+          //if (txtValue.indexOf(filter) > -1) {
+          if (i == 1) {
+              li[i].style.display = "";
+          } else {
+              li[i].style.display = "none";
+              console.log("Here")
+          }
+        }
+    }
+    
+  }*/
+
+</script>
