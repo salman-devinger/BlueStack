@@ -1,9 +1,9 @@
 {
   "name": "bluestack",
   "version": "0.0.1",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "async": "^3.1.0",
