@@ -24,6 +24,37 @@ module.exports = klass({
         });
 
     },
+    getAppList: function(cb) {
+        this.getListNames((err, result) =>{
+            if (err) throw err;
+            let appArr =[];
+            Async.eachSeries(result, (itm, callback) => {
+                let tmpObj = {};
+                const 
+                    tbl = 'appStore',
+                    query = {'listType' : itm.listId };
+                MongoClient.connect(conUrl,(err, db) =>{
+                    if (err) throw err;
+                    let dbo = db.db(selectedDB);
+                    dbo.collection(tbl).find(query).limit(3).toArray((errChild, resChild) => {
+                        if (errChild) throw errChild;
+                        db.close();
+                        tmpObj['listId'] = itm.listId;
+                        tmpObj['listName'] = itm.listName;
+                        tmpObj['data'] = resChild;
+                        appArr.push(tmpObj);
+                        return callback(null, 'done');
+                    });
+                });
+            }, function (err) {
+                if(err){
+                    throw err;
+                }
+                console.log(appArr);
+                return cb(null, appArr);
+            });
+        }); 
+    },
     getAppListData: function(actCat, cb) {
         let params = {};
         params.tbl = 'appStore',
@@ -97,8 +128,8 @@ module.exports = klass({
           if (err) throw err;
           let resAll = [];
           console.log(listNames);
-          Async.eachSeries(listNames, function (item, callback) {
-            let callUrl = apiUrl+'?access_token='+token+'&list_name='+item.listId;
+          Async.eachSeries(listNames, (item, callback) => {
+            let callUrl = apiUrl+'?access_token='+token+'&list_name='+item.listId+'&app_country=IN';
             console.log(callUrl);
             axios.get(callUrl)
             .then(function (response) {

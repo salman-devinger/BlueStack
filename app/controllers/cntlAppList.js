@@ -15,7 +15,16 @@ module.exports = klass({
 
   /*GET Create App List Page*/
   get: function(req, res, next) {
-    let actCat = req.query.listType || 'topselling_free';
+    
+    this.appListModal.getAppList((errChild, resultChild) =>{
+      if (errChild) throw errChild;
+      res.render('vwAppListAll', { title: 'BlueStack', res: resultChild
+      });
+    });
+  },
+
+  getAppList: function(req, res, next) {
+    let actCat = req.query.listType || 'topselling_free', actCatName;
     this.appListModal.getListNames((err, result) =>{
       if (err) throw err;
       let newList = [];
@@ -25,10 +34,10 @@ module.exports = klass({
       });
       const objIndex = newList.findIndex((obj => obj.listId == actCat));
       newList[objIndex].ACTIVE_YN = true;
+      actCatName = newList[objIndex].listName;
       this.appListModal.getAppListData(actCat, (errChild, resultChild) =>{
         if (errChild) throw errChild;
-        res.render('vwAppList', { title: 'BlueStack', listTypes: newList,
-            username: req.query.name, res: resultChild
+        res.render('vwAppList', { title: 'BlueStack', list_name: actCatName,  res: resultChild
         });
       });
     }); 
@@ -51,8 +60,7 @@ module.exports = klass({
       //console.log(resultApi);
       this.appListModal.getAppListData(actCat, (errChild, resultDb) =>{
         if (errChild) throw errChild;
-        res.redirect('/Applist'); // load the index.js file
-
+        
         if(resultDb && resultDb.length == 0){
           // insert api json
           insParams.tbl='appStore', insParams.app_list=resultApi;
@@ -99,7 +107,7 @@ module.exports = klass({
             });
           }
         }
-        
+        res.redirect('/ApplistAll'); // load the index.js file
       });
 
     });

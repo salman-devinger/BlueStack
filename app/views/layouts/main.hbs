@@ -9,30 +9,28 @@
 
 	<title>BlueStack</title>
   <link rel="stylesheet" type="text/css" href="/css/product-list-basic.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </style>
 </head>
 
 <body>
 <div class="bs-example">
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="/Applist" class="navbar-brand">BlueStack</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark"> -->
+  <!-- Brand/logo -->
+  <a class="navbar-nav" href="/ApplistAll">
+    <img src="img/bluestack.png" alt="logo" style="width:100px;">
+  </a>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav ml-auto pull-right" style="font-size: 20px;" >
-        <a href="/ReScrap" class="nav-item nav-link active">Rescrap</a>
-      </div>
-    </div>
-  </nav>
+  <a class="navbar-brand ml-auto pull-right" href="/ReScrap" >
+    <img src="img/reload.png" alt="logo" style="width:30px;">
+  </a>
+  
+  
+</nav>
+
 </div>
 {{!body will be rendered from res.render(template name);}}
   {{{body}}}

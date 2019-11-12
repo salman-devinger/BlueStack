@@ -1,194 +1,52 @@
-.bs-example{
-    margin: 20px;
-}
 body {
-padding : 10px ;
-
-}
-
-#exTab1 .tab-content {
-color : black;
-padding : 5px 15px;
-}
-
-#exTab2 h3 {
-color : white;
-background-color: #428bca;
-padding : 5px 15px;
-}
-
-/* remove border radius for the tab */
-
-#exTab1 .nav-pills > li > a {
-border-radius: 0;
-}
-
-/* change border radius for the tab , apply corners on top*/
-
-#exTab3 .nav-pills > li > a {
-border-radius: 4px 4px 0 0 ;
-}
-
-#exTab3 .tab-content {
-color : white;
-background-color: #428bca;
-padding : 5px 15px;
-}
-
-.product-list-basic{
-    list-style:none;
-    margin: 0 auto;
-    max-width: 1200px;
+    background-color:  #eee;
+  }
+  .title {
+   
+      margin-bottom: 50px;
+      text-transform: uppercase;
+  }
+  
+  .card-block {
+      font-size: 1em;
+      position: relative;
+      margin: 0;
+      padding: 1em;
+      border: none;
+      border-top: 1px solid rgba(34, 36, 38, .1);
+      box-shadow: none;
+       
+  }
+  .card {
+      font-size: 1em;
+      width: 20rem;
+      overflow: hidden;
+      padding: 5;
+      border: none;
+      border-radius: .28571429rem;
+      box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+      margin-top:20px;
+      margin-right:20px;
+  }
+  
+.cover-container {
+    height: 180px;
     width: 100%;
-    text-align: center;
-    padding: 0;
-}
-
-.product-list-basic li{
-    box-sizing:border-box;
-    display: inline-block;
-
-    text-align:left;
-    font:normal 12px sans-serif;
-
-    background-color:#ffffff;
-    border:1px solid #dbe3e7;
-    border-radius: 3px;
-    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.08);
-
-    margin: 0 12px 14px 0;
-    padding: 25px;
-}
-
-/* The product image */
-
-.product-list-basic .product-photo{
-    display: block;
-    text-align: center;
-    box-shadow : 0 0 20px 8px #f3f3f3 inset;
-
-    width: 275px;
-    margin-bottom: 25px;
-    padding: 20px 0;
-    box-sizing: border-box;
-}
-
-/* The product name */
-
-.product-list-basic h2{
-    display: block;
-    font-size: 18px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    max-width: 200px;
-    margin:0;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
-
-.product-list-basic h2 a{
-    text-decoration: none;
-    color: #2b2b2b;
-}
-
-.product-list-basic .product-compare{
-    float:right;
-
-    color: #808080;
-    text-decoration: none;
-
-    margin-top: -16px;
-}
-
-/* Rating */
-
-.product-list-basic .product-rating div{
+.cover-item {
+    position: relative;
     display: inline-block;
-    width: 80px;
-    margin-top: 10px;
+    margin: 8px 8px;
+    box-shadow: 2px 2px 4px #bbb;
+    border-top-right-radius: 4px;
+    width: 116px;
+    height: 158px;
+    vertical-align: bottom;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.product-list-basic .product-rating .product-stars{
-    display: inline-block;
-
-    color: #f09911;
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.product-list-basic .product-rating .product-stars i{
-    margin-right: 2px;
-}
-
-.product-list-basic .product-rating span{
-    margin-bottom: -2px;
-}
-
-.product-list-basic .product-rating span a{
-    color: #808080;
-    text-decoration: none;
-}
-
-/* Product description */
-
-.product-list-basic .product-description{
-    margin-top: 20px;
-
-    color: #5d5d5d;
-    font-size: 14px;
-    line-height: 1.45;
-    white-space: normal;
-
-    max-width: 260px;
-    margin-bottom: 20px;
-}
-
-/* Price and order button */
-
-.product-list-basic button{
-    border-radius: 2px;
-    background-color:  #87bae1;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
-    border: 0;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 13px;
-    cursor: pointer;
-
-    width: 95px;
-    height: 32px;
-}
-
-.product-list-basic .product-out-of-stock{
-    color: #c15017;;
-    font-weight: bold;
-    line-height: 32px;
-
-    width: 95px;
-    height: 32px;
-}
-
-.product-list-basic .product-price{
-    float: right;
-
-    color:  #4e4e4e;
-    font-weight: bold;
-    font-size: 20px;
-
-    padding-top: 6px;
-    margin: 0;
-}
-
-/* Making the list responsive */
-
-@media (max-width: 800px){
-
-    .product-list-basic .product-photo{
-        width: 225px;
-    }
-
-    .product-list-basic .product-description{
-        max-width: 225px;
-    }
-}
-
+#more {display: none;}

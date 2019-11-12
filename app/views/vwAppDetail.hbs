@@ -1,39 +1,37 @@
 <!-- Page Content -->
-<div class="container">
-
-  <!-- Portfolio Item Heading -->
-  <h1 class="my-4">{{{appData.title}}}
-    <small>{{{appData.package_name}}}</small>
-  </h1>
-
+<div class="container"><br/><br/>
   <!-- Portfolio Item Row -->
   <div class="row">
 
     
-	<iframe src="{{{appData.promo_video}}}" height="500" width="750" alt="Video Not Found" >
+	<img src="{{{appData.icon}}}" height="300" width="300" alt="Video Not Found" >
 	</iframe>
     <div class="col-md-4">
-      <h3 class="my-3">App Description</h3>
-      <p>{{{appData.short_desc}}}</p>
-      <h3 class="my-3">App Details</h3>
-      <ul>
-        <li>Category: {{{appData.category}}}</li>
-        <li>Version: {{{appData.version}}}</li>
-		<li>Source: {{{appData.market_source}}}</li>
-		<li>Size: {{{appData.size}}} MB</li>
-		<li>Status: {{{appData.market_status}}}</li>
-		<li>Developer: {{{appData.developer}}}</li>
-		<li>Rating: {{{appData.rating}}}</li>
-		<li>WebSite: <a href="{{{appData.website}}}">{{{appData.website}}}</a></li>
-      </ul>
+      <h3 class="my-3">{{{appData.title}}}</h3>
+      <p>{{{appData.category}}}&nbsp;&nbsp;&nbsp;{{{appData.developer}}}</p>
+  
+      <button type="button" class="btn btn-success">Download For PC</button>
+      
     </div>
 
   </div><br/>
+
+  <h3>ScreenShots</h3>
+  <div class="row-fluid">
+    <div class="col-lg-12 col-md-10 ">
+        <div class="cover-container">
+            <!-- START PANEL -->
+            {{#each appData.screenshots}}
+            <div class="cover-item" style="background-image: url('{{this}}')"></div>
+            {{/each}}
+            <!-- END PANEL -->
+        </div>
+    </div>
+  </div><br/><br/>
+  <h3>Description</h3><br/>
+  <p>{{{appData.description}}}</p>
   <!-- /.row -->
-
-  <!-- Related Projects Row -->
-  <h3 class="my-4">ScreenShots</h3><br/>
-
+<!--
   <div class="row">
 	{{#each appData.screenshots}}
     <div class="col-md-3 col-sm-6 mb-4">
@@ -42,7 +40,7 @@
 		</a>
     </div>
 	{{/each}}
-  </div>
+  </div> -->
   <!-- /.row -->
 
 </div>

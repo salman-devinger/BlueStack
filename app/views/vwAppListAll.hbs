@@ -1,29 +1,30 @@
-<br/><h1 align="center" style="color: #4d1d5e;">{{list_name}}</h1>  
-  <br/>  
+<br/><h1 align="center" style="color: #4d1d5e;">Top Charts</h1>  
+  <br/>
   <div id="exTab1" class="container">
-
-  <div id="test-list" >
-    <ul class="product-list-basic list" id="list">
-      {{#each res}}
-      <div class="card float-left" onclick="document.location.href='/appdetails?pkg={{this.package_name}}'">
-        <div class="row">
-            <div class="col-sm-5">
-                <img class="d-block w-100" src="{{this.icon}}" alt="">
-            </div>
-            <div class="col-sm-7">
-                <div class="card-block">
-                <!--           <h4 class="card-title">Small card</h4> -->
-                <h6>{{this.title}}</h6>
-                <h9 href="#" class="float-left" >{{this.developer}}</h9>
-                </div>
-            </div>
+    
+  {{#each res}}
+  <a href="/Applist?listType={{this.listId}}" class="float-left" >{{this.listName}}</a>
+  <a href="/Applist?listType={{this.listId}}" class="float-right" style="margin-right: 150px;">View All</a><br/>
+  <div class="row">
+  {{#each this.data}}
+  <div class="card float-left" onclick="document.location.href='/appdetails?pkg={{this.package_name}}'">
+    <div class="row">
+      <div class="col-sm-5">
+        <img class="d-block w-100" src="{{this.icon}}" alt="">
+      </div>
+      <div class="col-sm-7">
+        <div class="card-block">
+          <!--           <h4 class="card-title">Small card</h4> -->
+          <h6>{{this.title}}</h6>
+          <h9 href="#" class="float-left" >{{this.developer}}</h9>
         </div>
+      </div>
+
     </div>
-      {{/each}}
-    </ul>
-    <ul class="pagination"></ul>
   </div>
-</div>
+  {{/each}}<br/>
+</div><br/>
+{{/each}}<br/>
 
 <!-- Bootstrap core JavaScript
   ================================================== -->
